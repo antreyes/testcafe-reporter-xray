@@ -1,13 +1,12 @@
 {
-  "name": "testcafe-reporter-xray",
+  "name": "@antonio.reyes/testcafe-reporter-xray",
   "version": "1.0.0",
   "description": "xray TestCafe reporter plugin.",
-  "repository": "https://github.com/antreyes/testcafe-reporter-xray",
-  "author": {
-    "name": "Antonio REYES",
-    "email": "antonio.reyes@manomano.com",
-    "url": "https://github.com/antreyes"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antreyes/testcafe-reporter-xray.git"
   },
+  "author": "Antonio REYES <antonio.reyes@manomano.com> (https://github.com/antreyes)",
   "main": "lib/index",
   "files": [
     "lib"
@@ -15,7 +14,8 @@
   "scripts": {
     "test": "gulp test",
     "publish-please": "publish-please",
-    "prepublish": "publish-please guard"
+    "prepublish": "publish-please guard",
+    "publish": "publish"
   },
   "keywords": [
     "testcafe",
@@ -41,5 +41,13 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.3.4"
+  },
+  "bugs": {
+    "url": "https://github.com/antreyes/testcafe-reporter-xray/issues"
+  },
+  "homepage": "https://github.com/antreyes/testcafe-reporter-xray#readme",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
   }
 }
