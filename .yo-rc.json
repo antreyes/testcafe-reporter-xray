@@ -1,0 +1,8 @@
+{
+  "generator-testcafe-reporter": {
+    "promptValues": {
+      "githubUsername": "antreyes",
+      "website": "https://github.com/antreyes"
+    }
+  }
+}
