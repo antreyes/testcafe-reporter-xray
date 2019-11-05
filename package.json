@@ -20,7 +20,8 @@
   "keywords": [
     "testcafe",
     "reporter",
-    "plugin"
+    "plugin",
+    "xray"
   ],
   "license": "MIT",
   "devDependencies": {
