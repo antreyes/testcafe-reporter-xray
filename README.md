@@ -4,7 +4,7 @@
 This is the **xray** reporter plugin for [TestCafe](http://devexpress.github.io/testcafe).
 
 <p align="center">
-    <img src="https://raw.github.com/antreyes/testcafe-reporter-xray/master/media/preview.png" alt="preview" />
+    <img src="./media/preview.png" alt="preview" />
 </p>
 
 ## Install
