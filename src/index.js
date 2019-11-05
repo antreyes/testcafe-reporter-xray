@@ -1,34 +1,61 @@
-/* eslint-disable prettier/prettier */
-/* eslint-disable newline-after-var */
-/* eslint-disable no-unused-vars */
-/* eslint-disable quotes */
-/* eslint-disable keyword-spacing */
-/* eslint-disable indent */
-/* eslint-disable prettier/prettier */
+let currentTest = {};
+
+let currentInfo = {};
+
 module.exports = function () {
     return {
-
         report: {
             info:  [],
-            tests: [],       
+            tests: []
         },
-
-        async reportTaskStart (startTime, userAgents, testPlanKey) {
-            this.currentInfo = { startDate: startTime, testEnvironments: userAgents, testPlanKey: testPlanKey };
-            this.report.info.push(this.currentInfo);
+  
+        async reportTaskStart (startTime, userAgents) {
+            currentInfo = {
+                startDate:        startTime,
+                testEnvironments: userAgents
+            };
+        
         },
-
+  
         async reportFixtureStart (name, path, meta) {
-            //todo
+            for (var key in meta) 
+                currentInfo[key] = meta[key];
+            
         },
-
-        async reportTestDone (testKey, start, status, comment, evidences, examples, steps) {
-            this.currentTest = { testKey: testKey, start: start, status: status, comment: comment, evidences: evidences, examples: examples, steps: steps };
-            this.report.tests.push(this.currentTest);
+  
+        async reportTestStart (/* name, meta */) {
+            currentTest = { start: new Date().toISOString() };
         },
+  
+        async reportTestDone (name, testRunInfo, meta) {
+            let testStatus = 'UNDEFINED';
 
-        async reportTaskDone (rm ) {
+            if (!testRunInfo.skipped && JSON.stringify(testRunInfo.errs).replace(/[[\]]/g, '').length > 0) {
+                testStatus = 'FAILED';
+                delete testRunInfo.errs[0].callsite.stackFrames;
+            }
+            else 
+                testStatus = 'PASSED';
+            
+            for (var key in meta) 
+                currentTest[key] = meta[key];
+            
+  
+            currentTest.comment = testRunInfo;
+            currentTest.status = testStatus;
+            currentTest.finish = new Date().toISOString();
+            this.report.tests.push(JSON.parse(JSON.stringify(currentTest)));
+            currentTest = {};
+  
+        },
+      
+  
+        async reportTaskDone (endTime) {
+            currentInfo.finishDate = endTime;
+            this.report.info.push(currentInfo);
             this.write(JSON.stringify(this.report, null, 2));
-        }
+        },
+      
+  
     };
 };
