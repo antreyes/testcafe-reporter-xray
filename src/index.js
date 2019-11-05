@@ -13,13 +13,19 @@ module.exports = function () {
             tests: [],       
         },
 
-        async reportTaskStart (startTime, userAgents, testPlanKey) {
-            this.currentInfo = { startDate: startTime, testEnvironments: userAgents, testPlanKey: testPlanKey };
+        async reportTaskStart (startTime, userAgents, testCount) {
+            this.currentInfo = { startDate: startTime, testEnvironments: userAgents, testCount: testCount };
             this.report.info.push(this.currentInfo);
         },
 
         async reportFixtureStart (name, path, meta) {
-            //todo
+            console.log("hola");
+            console.log(meta);
+            console.log("adios");
+            console.log(path);
+            console.log("hasta luego");
+            console.log(name);
+            console.log("bye");
         },
 
         async reportTestDone (testKey, start, status, comment, evidences, examples, steps) {
