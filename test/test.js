@@ -7,7 +7,6 @@ it('Should produce report with colors', function () {
     var report   = createReport(true);
     var expected = read('./data/report-with-colors');
 
-    console.log(expected);
     report   = normalizeNewline(report).trim();
     expected = normalizeNewline(expected).trim();
 
@@ -18,7 +17,6 @@ it('Should produce report without colors', function () {
     var report   = createReport(false);
     var expected = read('./data/report-without-colors');
 
-    console.log('WIHT: ' + expected);
     report   = normalizeNewline(report).trim();
     expected = normalizeNewline(expected).trim();
 

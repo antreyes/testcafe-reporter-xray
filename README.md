@@ -1,5 +1,6 @@
 # testcafe-reporter-xray
 [![Build Status](https://travis-ci.org/antreyes/testcafe-reporter-xray.svg)](https://travis-ci.org/antreyes/testcafe-reporter-xray)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 This is the **xray** reporter plugin for [TestCafe](http://devexpress.github.io/testcafe).
 
@@ -7,13 +8,13 @@ This is the **xray** reporter plugin for [TestCafe](http://devexpress.github.io/
     <img src="./media/preview.png" alt="preview" />
 </p>
 
-## Install
+## Install :construction:
 
 ```
 npm install testcafe-reporter-xray
 ```
 
-## Usage
+## Usage :wrench:
 
 When you run tests from the command line, specify the reporter name by using the `--reporter` option:
 
@@ -33,5 +34,5 @@ testCafe
     .run();
 ```
 
-## Author
+## Author 
 Antonio REYES (https://github.com/antreyes)
